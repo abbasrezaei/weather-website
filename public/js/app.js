@@ -16,10 +16,11 @@ weatherForm.addEventListener("submit", (e) => {
 					massageOne.textContent = data.error;
 				} else {
 					massageOne.textContent = data.location;
-
 					massageTow.textContent = data.forecast;
 				}
 			});
 		}
 	);
 });
+
+console.log(location);
