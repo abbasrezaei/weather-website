@@ -9,18 +9,16 @@ weatherForm.addEventListener("submit", (e) => {
 	massageOne.textContent = "Laoding...";
 	massageTow.textContent = "";
 
-	fetch("http://localhost:8000/weather?address=" + location).then(
-		(response) => {
-			response.json().then((data) => {
-				if (data.error) {
-					massageOne.textContent = data.error;
-				} else {
-					massageOne.textContent = data.location;
-					massageTow.textContent = data.forecast;
-				}
-			});
-		}
-	);
+	fetch("/weather?address=" + location).then((response) => {
+		response.json().then((data) => {
+			if (data.error) {
+				massageOne.textContent = data.error;
+			} else {
+				massageOne.textContent = data.location;
+				massageTow.textContent = data.forecast;
+			}
+		});
+	});
 });
 
 console.log(location);
