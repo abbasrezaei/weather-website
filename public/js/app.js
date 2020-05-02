@@ -9,7 +9,9 @@ weatherForm.addEventListener("submit", (e) => {
 	massageOne.textContent = "Laoding...";
 	massageTow.textContent = "";
 
-	fetch("/weather?address=" + location).then((response) => {
+	fetch(
+		"https://rezaei-weather-app.herokuapp.com/weather?address=" + location
+	).then((response) => {
 		response.json().then((data) => {
 			if (data.error) {
 				massageOne.textContent = data.error;
